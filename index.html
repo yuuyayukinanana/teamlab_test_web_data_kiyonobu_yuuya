@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html amp lang="jp">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Photo</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.3.1.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/mod_card-columns.css" rel="stylesheet">
+    <link href="css/mydesign.css" rel="stylesheet">
+    <script src="js/datastream.js"></script>
+  </head>
+  <body class="bg-photo" style="padding-top: 70px">
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top border bg-white"> <a class="navbar-brand" href="index.html">My Design Base</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+      <ul class="navbar-nav mr-auto flex-row">
+        <li class="nav-item active col-2"><button type="button" id="nav_building" class="btn btn-outline-secondary w-100" onClick="tag_change('building', 'btn-secondary','btn btn-outline-secondary','true', 'false')">建物</button></a></li>
+        <li class="nav-item active col-2"><button type="button" id="nav_sky" class="btn btn-outline-primary w-100" onClick="tag_change('sky', 'btn-primary', 'btn-outline-primary','true', 'false')">青空</button></a></li>
+        <li class="nav-item active col-2"><button type="button" id="nav_night_sky" class="btn btn-outline-dark w-100" onClick="tag_change('night_sky', 'btn-dark', 'btn-outline-dark','true', 'false')">夜景</button></a></li>
+        <li class="nav-item active col-2"><button type="button" id="nav_art" class="btn btn-outline-danger w-100" onClick="tag_change('art', 'btn-danger', 'btn-outline-danger','true', 'false')">アート</button></a></li>
+        <li class="nav-item active col-2"><button type="button" id="nav_food" class="btn btn-outline-warning w-100" onClick="tag_change('food', 'btn-warning', 'btn-outline-warning','true', 'false')">食べ物</button></a></li>
+        <li class="nav-item active col-2"><button type="button" id="nav_spring" class="btn btn-outline-success w-100" onClick="tag_change('spring', 'btn-success', 'btn-outline-success','true', 'false')">春</button></a></li>
+        <li class="nav-item active col-2"><button type="button" id="nav_summer" class="btn btn-outline-primary w-100" onClick="tag_change('summer', 'btn-primary', 'btn btn-outline-primary','true', 'false')">夏</button></a></li>
+        <li class="nav-item active col-2"><button type="button" id="nav_autumn" class="btn btn-outline-danger w-100" onClick="tag_change('autumn', 'btn-danger', 'btn-outline-danger','true', 'false')">秋</button></a></li>
+        <li class="nav-item active col-2"><button type="button" id="nav_winter" class="btn btn-outline-info w-100" onClick="tag_change('winter', 'btn-info', 'btn-outline-info','true', 'false')">冬</button></a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <div class="container">
+    <div class="row no-gutters">
+          <div>&nbsp;</div>
+    </div>
+        <div class="row no-gutters">
+          <div class="col-5">
+            <img src="images/gif/font_photo.gif" class="img-fluid w-50">
+          </div>
+          <div class="w-100"></div>
+        <div class="col-5 border-top border-dark">&nbsp;</div>
+    </div>
+  </div>
+    <div class="container">
+        <div class="card-columns" id="stream_list">
+
+        </div>
+    </div>
+    
+
+<!--
+    <div class="card">
+      <div class="card-body">
+        <img class="card-img-top" src="images/images/_DSC0494.jpg" alt="">
+      </div>
+    </div>
+-->
+
+  </main>
+  <footer class="border-top">
+    <article>
+      <p><small>Copyright &copy; 2020 kiyonobuYuya. All rights reserved. </small></p>
+    </article>
+  </footer>
+
+<!--modal-->
+  <div class="modal fade" id="mainModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="view_title_text"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!--<p>モーダルのコンテンツ文。</p>-->
+        <img class="no-gutters img-fluid" id="modal-photo">
+        <ul class="list-group mr-auto flex-row list-unstyled justify-content-center" id="view_modal_badge">
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+      </div><!-- /.modal-footer -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--end modal-->
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+ <script src="js/popper.min.js"></script>
+ <script src="js/bootstrap-4.3.1.js"></script>
+ <script src="js/datastream.js"></script>
+</html>

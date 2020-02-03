@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.3.1.css" rel="stylesheet">
+	<link href="css/mydesign.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+  <link href="css/mod_card-columns.css" rel="stylesheet">
+  </head>
+  <body class="bg-photo" style="padding-top: 70px">
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top border bg-white"> <a class="navbar-brand" href="index.html">Edit page</a>
+    <button type="submit" class="btn btn-success" onClick="add_modal()">追加</button>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+    <div class="row no-gutters">
+          <div>&nbsp;</div>
+    </div>
+        <div class="row no-gutters">
+          <div class="col-5">
+            <img src="images/gif/font_photo.gif" class="img-fluid w-50">
+          </div>
+          <div class="w-100"></div>
+        <div class="col-5 border-top border-dark">&nbsp;</div>
+    </div>
+  </div>
+    <div class="container">
+        <div class="card-columns" id="stream_list">
+
+        </div>
+    </div>
+
+<!--
+    <div class="card">
+      <div class="card-body">
+        <img class="card-img-top" src="images/images/_DSC0494.jpg" alt="">
+      </div>
+    </div>
+-->
+
+  </main>
+  <footer class="border-top">
+    <article>
+      <p><small>Copyright &copy; 2020 kiyonobuYuya. All rights reserved. </small></p>
+    </article>
+  </footer>
+
+
+
+<!--modal-->
+  <div class="modal fade" id="mainModal" tabindex="-1" role="dialog" aria-labelledby="mainModalLabel">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mainModalLabel">変更中</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="container">
+                  <img class="no-gutters img-fluid" id="modal-photo">
+          <div class="form-group">
+                <div class="form-row">
+                    <label for="title_text">タイトル</label>
+                    <input type="text" class="form-control" id="change_title_text" placeholder="タイトル">
+                </div>
+
+            <p class="pt-4 pb-0">タグ</p>
+            <div class="form-row mx-auto">
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="change_building" type="checkbox">
+              <label class="form-check-label" for="building">建物</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="change_sky" type="checkbox">
+              <label class="form-check-label" for="sky">青空</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="change_night_sky" type="checkbox">
+              <label class="form-check-label" for="night_sky">夜景</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="change_art" type="checkbox">
+              <label class="form-check-label" for="art">アート</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="change_food" type="checkbox">
+              <label class="form-check-label" for="food">食べ物</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="change_spring" type="checkbox">
+              <label class="form-check-label" for="spring">春</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="change_summer" type="checkbox">
+              <label class="form-check-label" for="summer">夏</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="change_autumn" type="checkbox">
+              <label class="form-check-label" for="autumn">秋</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="change_winter" type="checkbox">
+              <label class="form-check-label" for="winter">冬</label>
+            </div>
+            </div>
+            </div>
+
+        　</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        <button type="button" class="btn btn-danger" onClick="data_delete('')" data-dismiss="modal">削除</button>
+        <button type="button" class="btn btn-primary" onClick="data_modify('')" data-dismiss="modal">変更を保存</button>
+      </div><!-- /.modal-footer -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--end modal-->
+<!--modal-->
+
+
+
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">新規追加</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group needs-validation" name="add_from" novalidate>
+            <div class="container">
+                <label for="file1">写真選択:</label>
+                <div id="file" class="input-group">
+                    <div class="custom-file">
+                        <input type="file" id="cutomfile" class="custom-file-input" name="cutomfile[]" required accept=".jpg,.png,image/jpeg,image/png"/>
+                        <label class="custom-file-label" for="customfile" data-browse="参照">
+                            <div class="invalid-feedback">
+                                ファイル選択...
+                            </div>
+                        </label>
+                    </div>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-outline-secondary reset">取消</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <label for="title_text">タイトル</label>
+                <input type="text" class="form-control" id="add_title_text" placeholder="タイトル">
+            </div>
+
+
+            <div class="container">
+            <p class="pt-4">タグ</p>
+            <div class="form-row mx-auto">
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="add_building" type="checkbox">
+              <label class="form-check-label" for="building">建物</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="add_sky" type="checkbox">
+              <label class="form-check-label" for="sky">青空</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="add_night_sky" type="checkbox">
+              <label class="form-check-label" for="night_sky">夜景</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="add_art" type="checkbox">
+              <label class="form-check-label" for="art">アート</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="add_food" type="checkbox">
+              <label class="form-check-label" for="food">食べ物</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="add_spring" type="checkbox">
+              <label class="form-check-label" for="spring">春</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="add_summer" type="checkbox">
+              <label class="form-check-label" for="summer">夏</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="add_autumn" type="checkbox">
+              <label class="form-check-label" for="autumn">秋</label>
+            </div>
+            <div class="form-check col-4">
+              <input class="form-check-input position-static" id="add_winter" type="checkbox">
+              <label class="form-check-label" for="winter">冬</label>
+            </div>
+            </div>
+            </div>
+
+        　</div>
+
+
+      </div>
+      <div class="modal-footer">
+         <input type="submit" class="btn btn-primary" value="追加" onClick="add_func('')" data-dismiss="modal">
+      </div><!-- /.modal-footer -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--end modal-->
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+ <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+ <script src="js/popper.min.js"></script>
+ <script src="js/bootstrap-4.3.1.js"></script>
+ <script src="js/add_data.js"></script>
+</body>
+</html>
