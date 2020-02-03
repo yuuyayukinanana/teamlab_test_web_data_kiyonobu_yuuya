@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#hamburger {
+  margin: 10px;
+  border: 1px solid black;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  line-height: 28px;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  background-color: rgba(255,255,255,0.8);
+  box-shadow: 0px 0px 5px 0px gray;
+}
+#main-menu {
+  border: 1px solid black;
+  background-color: rgba(255,255,255,0.8);
+  box-shadow: 0px 0px 5px 0px gray;  
+  padding: 5px;
+}
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 0px;
+}
+
+
+.sa {
+  opacity: 0;
+  transition: all .5s ease;
+}
+ 
+.sa.show {
+  opacity: 1;
+  transform: none;
+}
+ 
+.sa--lr {
+  transform: translate(-100px, 0);
+}
+ 
+.sa--rl {
+  transform: translate(100px, 0);
+}
+ 
+.sa--up {
+  transform: translate(0, 100px);
+}
+ 
+.sa--down {
+  transform: translate(0, -100px);
+}
+ 
+.sa--scaleUp {
+  transform: scale(.5);
+}
+ 
+.sa--scaleDown {
+  transform: scale(1.5);
+}
+ 
+.sa--rotateL {
+  transform: rotate(180deg);
+}
+ 
+.sa--rotateR {
+  transform: rotate(-180deg);
+}
